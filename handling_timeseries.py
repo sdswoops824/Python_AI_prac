@@ -20,3 +20,23 @@ if __name__ == '__main__':
 # slicing time series data
     timeseries['1980':'1990'].plot()
     plt.show()
+
+# timeseries information
+    print(timeseries.mean())
+    print(timeseries.max())
+    print(timeseries.min())
+    print(timeseries.describe())
+
+# timeseries re-sampling with mean
+    timeseries_mm = timeseries.resample("A").mean()
+    timeseries_mm.plot(style = 'g--')
+    plt.show()
+
+# timeseries re-sampling with median
+    timeseries_mm = timeseries.resample("A").median()
+    timeseries_mm.plot()
+    plt.show()
+
+# moving average
+    timeseries.rolling(window=12, center=False).mean().plot(style = '--g')
+    plt.show()
