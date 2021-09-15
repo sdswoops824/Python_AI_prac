@@ -26,7 +26,7 @@ xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
 titles = ['Linear kernel', 'rbf kernel', 'poly kernel', 'sigmoid kernel']
 
 for i, clf in enumerate((linear, rbf, poly, sig)):
-    # defines how many plots: 2 rows, 2columns=> leading to 4 plots
+    # defines how many plots: 2 rows, 2 columns=> leading to 4 plots
     plt.subplot(2, 2, i + 1) # i+1 is the index
     # space between plots
     plt.subplots_adjust(wspace=0.4, hspace=0.4)
@@ -35,7 +35,7 @@ for i, clf in enumerate((linear, rbf, poly, sig)):
     Z = Z.reshape(xx.shape)
     plt.contourf(xx, yy, Z, cmap=plt.cm.PuBuGn, alpha=0.7)
     # Plot also the training points
-    plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.PuBuGn,     edgecolors='grey')
+    plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.PuBuGn, edgecolors='grey')
     plt.xlabel('Sepal length')
     plt.ylabel('Sepal width')
     plt.xlim(xx.min(), xx.max())
@@ -44,7 +44,7 @@ for i, clf in enumerate((linear, rbf, poly, sig)):
     plt.yticks(())
     plt.title(titles[i])
 
-# plt.show()
+plt.show()
 
 linear_pred = linear.predict(X_test)
 poly_pred = poly.predict(X_test)
